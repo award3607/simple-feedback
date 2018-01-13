@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Test 03 Topic</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="/css/dashboard.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Test 03 Topic</h1>
+            <p>Test 03 Topic</p>
+            <h3 class="page-header">Test Feedback Submission Form</h3>
+            <div id="feedbackArea">
+                <p>Was this topic helpful?</p>
+                <button id="helpful" class="btn btn-primary helpful-button" data-helpful="true">Yes</button>
+                <button id="notHelpful" class="btn btn-warning helpful-button" data-helpful="false">No</button>
+            </div>
+            <form class="collapse">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input id="inaccurate" type="checkbox" value="" disabled>
+                            <strong>Inaccurate</strong> &mdash; This topic does not describe the way the program functions.
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input id="outdated" type="checkbox" value="" disabled>
+                            <strong>Outdated</strong> &mdash; This topic contains information or screenshots that are no longer relevant.
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input id="badSearch" type="checkbox" value="" disabled>
+                            <strong>Bad Search Result</strong> &mdash; This topic does not apply to my search term(s).
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input id="unclear" type="checkbox" value="" disabled>
+                            <strong>Unclear</strong> &mdash; This topic does not adequately explain the feature or process.
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <textarea class="form-control" id="comment" rows="3" disabled></textarea>
+                </div>
+                <button id="submitFeedback" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="../../js/feedback_client.js"></script>
+    </body>
+</html>
