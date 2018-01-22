@@ -22,8 +22,27 @@ router.get('/admin', feedbackController.feedback_admin);
 
 router.get('/test', feedbackController.feedback_test);
 
-router.get('/login', userController.login);
+//login
+router.get('/login', userController.login_page);
+ 
+router.post('/login', userController.login);
 
-router.get('/user', userController.user_create);
+//create user
+
+router.get('/user', userController.user_create_page);
+
+router.post('/user', userController.user_api_create);
+
+//logout
+
+router.get('/logout', userController.logout);
+
+//helpers
+var isLoggedIn = function(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/');
+};
 
 module.exports = router;
