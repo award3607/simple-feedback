@@ -1,4 +1,5 @@
 var express = require('express');
+var passport = require('passport');
 var feedbackController = require('../controllers/feedbackController.js');
 var userController = require('../controllers/userController.js');
 
@@ -18,31 +19,39 @@ router.get('/', (req, res) => {
     res.render('index');
 });
 
-router.get('/admin', feedbackController.feedback_admin);
+router.get('/admin', isLoggedIn, feedbackController.feedback_admin);
 
 router.get('/test', feedbackController.feedback_test);
 
 //login
 router.get('/login', userController.login_page);
  
-router.post('/login', userController.login);
+router.post('/login', passport.authenticate('login', {
+    successRedirect: '/admin',
+    failureRedirect: '/login'
+    }
+));
 
 //create user
 
 router.get('/user', userController.user_create_page);
 
-router.post('/user', userController.user_api_create);
+router.post('/user', passport.authenticate('create-user', {
+    successRedirect: '/admin',
+    failureRedirect: '/user'
+    }
+));
 
 //logout
 
 router.get('/logout', userController.logout);
 
 //helpers
-var isLoggedIn = function(req, res, next) {
+function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
-    res.redirect('/');
-};
+    res.redirect('/login');
+}
 
 module.exports = router;

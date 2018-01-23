@@ -4,13 +4,13 @@ exports.login_page = (req, res) => {
     res.render('login');
 };
 
+exports.user_create_page = (req, res) => {
+    res.render('create-user');
+};
+
 exports.login = (req, res) => {
     console.log(`Login attempt from ${req.body.username}`);
     res.render('login');
-};
-
-exports.user_create_page = (req, res) => {
-    res.render('create-user');
 };
 
 exports.user_api_create = (req, res) => {

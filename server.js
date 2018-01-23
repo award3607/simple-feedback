@@ -2,10 +2,9 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
 var db = require('./models');
-
-var routes = require('./routes/routes.js');
 
 //configure passport
 // require('./config/passport')(passport);
@@ -24,6 +23,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({ secret: 'bootcamp', resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+var routes = require('./routes/routes.js');
+
+//passport config
+var User = db.User;
+require('./config/passport.js')(passport, User);
 
 //allow CORS
 app.use(function(req, res, next) {
