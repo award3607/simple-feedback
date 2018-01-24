@@ -2,7 +2,7 @@ var Feedback = require('../models').feedback;
 
 exports.feedback_admin = (req, res) => {
     Feedback.findAll({}).then(data => {
-        res.render('admin', {data: data});
+        res.render('admin', {data: data, user: req.user});
     });
 };
 
