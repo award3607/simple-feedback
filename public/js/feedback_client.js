@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    let baseUrl = '';
+    let baseUrl = 'https://powerful-cliffs-51944.herokuapp.com';
     $('.helpful-button').on('click', function(event) {
         event.preventDefault();
         let feedback = {

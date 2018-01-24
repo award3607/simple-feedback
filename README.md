@@ -7,7 +7,10 @@
 
 ### Packages
 * Express
+* Express-Session
 * Sequelize
 * Handlebars
 * MySQL2
+* Passport
 
+Heroku: [https://powerful-cliffs-51944.herokuapp.com](https://powerful-cliffs-51944.herokuapp.com)
