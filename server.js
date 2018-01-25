@@ -6,9 +6,6 @@ var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
 var db = require('./models');
 
-//configure passport
-// require('./config/passport')(passport);
-
 var PORT = process.env.PORT || 3000;
 
 var app = express();
@@ -27,8 +24,7 @@ app.use(passport.session());
 var routes = require('./routes/routes.js');
 
 //passport config
-var User = db.User;
-require('./config/passport.js')(passport, User);
+require('./config/passport.js')(passport, db.User);
 
 //allow CORS
 app.use(function(req, res, next) {
