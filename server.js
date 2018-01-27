@@ -39,6 +39,11 @@ app.use(express.static('public'));
 //routes
 app.use(routes);
 
+//404 redirect to root
+app.use((req, res, next) => {
+	res.status(404).redirect('/');
+});
+
 db.sequelize.sync().then(() => {
 	app.listen(PORT, () => {
 		console.log(`Feedback server listening on PORT ${PORT}`);
