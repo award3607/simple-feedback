@@ -16,7 +16,7 @@ router.post('/api/delete', feedbackController.feedback_api_delete_post);
 
 //html
 router.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {bodyClass: "login"});
 });
 
 router.get('/admin', isLoggedIn, feedbackController.feedback_admin);

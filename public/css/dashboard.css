@@ -6,6 +6,10 @@
 body {
     padding-top: 50px;
   }
+
+  .login {
+    background-color: slateblue;
+  }
   
   
   /*
@@ -84,10 +88,6 @@ body {
     margin-top: 0;
   }
   
-  
-  /*
-   * Placeholder dashboard ideas
-   */
 
   form {
     margin-bottom: 40px;
