@@ -21,20 +21,20 @@ router.get('/', (req, res) => {
 
 router.get('/admin', isLoggedIn, feedbackController.feedback_admin);
 
-router.get('/test', feedbackController.feedback_test);
+router.get('/test', isLoggedIn, feedbackController.feedback_test);
 
 //login
-router.get('/login', userController.login_page);
+// router.get('/login', userController.login_page);
  
 router.post('/login', passport.authenticate('login', {
     successRedirect: '/admin',
-    failureRedirect: '/login'
+    failureRedirect: '/'
     }
 ));
 
 //create user
 
-router.get('/user', userController.user_create_page);
+router.get('/user', isLoggedIn, userController.user_create_page);
 
 router.post('/user', passport.authenticate('create-user', {
     successRedirect: '/admin',
@@ -51,7 +51,7 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
-    res.redirect('/login');
+    res.redirect('/');
 }
 
 module.exports = router;

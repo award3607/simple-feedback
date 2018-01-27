@@ -1,8 +1,8 @@
 var User = require('../models').user;
 
-exports.login_page = (req, res) => {
-    res.render('login');
-};
+// exports.login_page = (req, res) => {
+//     res.render('login');
+// };
 
 exports.user_create_page = (req, res) => {
     res.render('create-user');
