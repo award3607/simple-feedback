@@ -14,3 +14,6 @@
 * Passport
 
 Heroku: [https://powerful-cliffs-51944.herokuapp.com](https://powerful-cliffs-51944.herokuapp.com)
+
+User: User1
+Password: pw1
